@@ -1,0 +1,22 @@
+/* =========================================================
+   BYRCON — estilos específicos de proyectos.html
+   Requiere css/base.css cargado antes que este archivo.
+   ========================================================= */
+
+.projects-page{padding:20px 0 90px;}
+
+.project-filters{display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap;}
+.filter-btn{
+  padding:10px 20px;border:1px solid var(--border-soft);border-radius:var(--radius);
+  background:none;color:var(--text-muted);font-size:14px;font-weight:600;
+  transition:border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.filter-btn:hover{color:var(--white);border-color:var(--white);}
+.filter-btn.is-active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);}
+
+.project-tag{
+  display:block;font-size:12px;font-weight:700;color:var(--accent);
+  text-transform:uppercase;letter-spacing:0.3px;margin-bottom:6px;
+}
+
+.project-empty{color:var(--text-muted);font-size:15px;padding:40px 0;}

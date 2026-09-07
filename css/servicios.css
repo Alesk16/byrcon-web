@@ -1,0 +1,45 @@
+/* =========================================================
+   BYRCON — estilos específicos de servicios.html
+   Requiere css/base.css cargado antes que este archivo.
+   ========================================================= */
+
+/* -------- Detalle de servicios -------- */
+.service-detail-list{padding:90px 0;}
+.service-detail{
+  display:grid;grid-template-columns:88px 1fr;gap:32px;
+  padding:44px 0;border-top:1px solid var(--border-soft);
+}
+.service-detail:first-child{border-top:none;padding-top:0;}
+.service-detail-icon{
+  width:88px;height:88px;border:1px solid var(--border-soft);border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.service-detail-icon svg{width:40px;height:40px;}
+.service-detail-body h2{font-size:26px;margin-bottom:14px;}
+.service-detail-body p{color:var(--text-muted);font-size:16px;line-height:1.6;max-width:64ch;margin-bottom:20px;}
+.service-detail-list-items{display:flex;flex-direction:column;gap:10px;}
+.service-detail-list-items li{
+  position:relative;padding-left:24px;font-size:15px;color:var(--white);
+}
+.service-detail-list-items li::before{
+  content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--accent);
+}
+
+@media (max-width:640px){
+  .service-detail{grid-template-columns:1fr;gap:16px;}
+}
+
+/* -------- Proceso -------- */
+.process{
+  padding:80px 0;background:var(--bg-dark-deep);
+  border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);
+}
+.process h2{font-size:clamp(28px,3.4vw,42px);margin:14px 0 40px;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+.process-step{border-left:2px solid var(--accent);padding-left:18px;}
+.process-num{font-weight:800;font-size:28px;color:var(--accent);display:block;margin-bottom:10px;}
+.process-step h3{font-size:18px;margin-bottom:8px;}
+.process-step p{font-size:14px;color:var(--text-muted);line-height:1.5;}
+
+@media (max-width:860px){.process-grid{grid-template-columns:1fr 1fr;row-gap:32px;}}
+@media (max-width:520px){.process-grid{grid-template-columns:1fr;}}
