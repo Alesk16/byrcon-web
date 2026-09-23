@@ -30,9 +30,9 @@ byrcon-web/
 │  ├─ base.js            ← compartido: menú móvil, observer de .reveal, contadores animados de cifras, carrusel de aliados
 │  ├─ home.js            ← solo Home: selector de servicios, slider de testimonios, formulario, faq
 │  └─ proyectos.js       ← solo Proyectos: filtro por tipo
-├─ images/               ← logo, fotos de proyectos, hero, logos-aliados/ (logos de aliados estratégicos, PNG)
+├─ images/               ← logos (byrcon-logo.png original → footer; byrcon-logo-cropped.png sin margen → header (y base de favicon.png); dona-hacienda-logo.webp → header), fotos de proyectos, hero, logos-aliados/ (logos de aliados estratégicos, PNG)
 ├─ PLAN.md               ← roadmap completo por fases
-├─ pending-aliados-carousel.md ← spec del carrusel de aliados, pendiente de construir
+├─ docs/archivo/         ← documentos históricos ya resueltos (ej. pending-aliados-carousel.md, spec + historial del carrusel de aliados)
 └─ CLAUDE.md             ← este archivo
 ```
 
@@ -50,15 +50,16 @@ Patrones reutilizables ya establecidos, úsalos en vez de crear nuevos:
 - `.section-eyebrow` + `.section-lede`: encabezado pequeño en verde + párrafo intro, presente en casi todas las secciones
 - `.reveal` + el IntersectionObserver genérico en `js/base.js`: fade-in al hacer scroll, reutilizado en todas las secciones de todas las páginas
 - `.btn`, `.btn-accent`, `.btn-outline`: sistema de botones
-- Patrón "logo grande sin que el contenedor crezca": clase base chica (`.logo-img`, la usa el footer a 34px) + override específico por contenedor (`.site-header .logo-img` a 140px), combinado con `height` fija + `overflow:visible` en el contenedor (`.header-row`, `.footer-top`) — así el logo puede ser más grande que la barra sin empujarla. Si se pide agrandar un logo o ícono en otro lado, replicar este mismo patrón.
+- Header en dos filas (idéntico en las 5 páginas): `.header-top` (logo de Byrcon a la izquierda + logo de La Doña Hacienda a la derecha, que se oculta en <900px) y `.header-bottom` (nav + botón Contáctanos + hamburguesa). El `position:sticky` va en `.site-header` con `top` negativo igual a `--header-top-h` (alto fijo de la fila de logos: 101px desktop / 77px móvil), así la fila de logos se va con el scroll y la de nav queda pegada — no poner el sticky en `.header-bottom`, dentro del `<header>` no funciona. Si cambia el alto de la fila de logos, cambiar solo `--header-top-h`. El menú móvil (`.primary-nav` absolute, `top:100%`) se ancla a `.header-bottom` (`position:relative`).
+- Tamaño de logos por contenedor: clase base `.logo-img` (34px) + override por contenedor (`.header-top .logo-img`, `.site-footer .logo-img`). El footer sigue usando el patrón de `height` fija + `overflow:visible` en `.footer-top` para que el logo sea más grande que su fila sin empujarla; el header ya no lo necesita.
 - `.page-banner` / `.cta-band`: reutilizables para cualquier página interior nueva.
 - Iconos: SVG en línea, `viewBox="0 0 48 48"`, `stroke="var(--accent)"`, `stroke-width="1.5"`, sin relleno salvo casos puntuales — mantener ese estilo en cualquier ícono nuevo.
 
 ## Estado actual
 - ✅ **Home (`index.html`) completo**: hero con foto real de fondo, cifras animadas (contador al hacer scroll), sección "20 años construyendo confianza" con gráfico de crecimiento, selector interactivo de servicios, sección de compromiso + tags de prácticas, proyectos destacados con fotos reales (4), slider de testimonios (autoplay + controles), formulario de cotización (sin backend), FAQ con acordeón accesible (`aria-expanded`), footer con LinkedIn real y logo oficial.
-- ✅ **Servicios (`servicios.html`) completo**: detalle ampliado de los 6 servicios, sección "Cómo trabajamos" (proceso en 4 pasos). Falta el carrusel de "Aliados Estratégicos" — ver `pending-aliados-carousel.md`.
+- ✅ **Servicios (`servicios.html`) completo**: detalle ampliado de los 6 servicios, sección "Cómo trabajamos" (proceso en 4 pasos), carrusel de "Aliados Estratégicos" (11 logos, compartido con Nosotros — historial en `docs/archivo/pending-aliados-carousel.md`).
 - ✅ **Proyectos (`proyectos.html`) completo**: grid con filtro por tipo (industrial/comercial), los 4 proyectos actuales categorizados. Ampliable cuando haya más fotos.
-- ✅ **Sobre Nosotros (`nosotros.html`) completo**: intro + 3 pilares, cifras, equipo (3 personas, nombres/cargos reales, fotos pendientes salvo Silvana que también usa placeholder en el sitio real).
+- ✅ **Sobre Nosotros (`nosotros.html`) completo**: intro + 3 pilares, cifras, equipo (3 personas, nombres/cargos reales, fotos pendientes salvo Silvana que también usa placeholder en el sitio real), carrusel de aliados.
 - ✅ **Aviso de Privacidad (`privacidad.html`) completo**: borrador razonable en base a la LOPDP de Ecuador, no revisado por un abogado. Tiene placeholders `[completar razón social y RUC]`, `[completar dirección]`, `[completar correo de contacto]` (x2) que el usuario debe llenar antes de publicar.
 - Ver `PLAN.md` para el roadmap completo por fases y qué sigue.
 
@@ -66,6 +67,7 @@ Patrones reutilizables ya establecidos, úsalos en vez de crear nuevos:
 - Formulario de cotización: no envía correos reales, solo simula éxito visualmente (`js/home.js`, buscar `TODO`)
 - Ícono de WhatsApp en el footer: `href="#"` — falta el número real del negocio
 - Hex de marca y tipografía: aproximados a ojo desde un screenshot, no confirmados contra un manual de marca oficial
+- Logo de La Doña Hacienda (`dona-hacienda-logo.webp`, 145×145): es un sello circular blanco sin margen transparente, no se puede recortar más. Va a 52px con opacidad 0.75 (1 al pasar el mouse) para que quede secundario frente a Byrcon (42px). Si aun así se ve pesado, la solución es pedir una versión horizontal/sin sello, no recortarlo
 
 ## Cómo quiero trabajar contigo
 1. **Antes de cambiar código existente, audita primero y muéstrame el reporte** — no apliques cambios grandes sin que yo los revise y apruebe.
