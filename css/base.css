@@ -58,8 +58,28 @@ button{font-family:inherit;cursor:pointer;}
 .btn-outline:hover{border-color:var(--white);}
 
 /* -------- Header -------- */
+/* Dos filas: arriba logos (se van con el scroll), abajo nav + CTA (queda pegada).
+   El sticky va en .site-header con top negativo = alto de .header-top: así la fila
+   de logos sale de pantalla y la de nav se queda. (Un sticky en .header-bottom no
+   funcionaría: quedaría atrapado dentro del <header>, que termina justo debajo.)
+   Si cambias el alto de la fila de logos, cambia solo --header-top-h. */
 .site-header{
-  position:sticky;top:0;z-index:50;
+  --header-top-h:101px;
+  position:sticky;top:calc(-1 * var(--header-top-h));z-index:50;
+}
+.header-top{
+  height:var(--header-top-h);
+  display:flex;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.header-top-inner{
+  flex:1;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.header-top .logo-img{height:36px;width:auto;}
+
+.header-bottom{
+  position:relative;
   background:rgba(26,44,46,0.5);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
@@ -67,20 +87,14 @@ button{font-family:inherit;cursor:pointer;}
 }
 .header-row{
   display:flex;align-items:center;justify-content:space-between;
-  height:68px;
-  overflow:visible;
+  padding:14px 0;
 }
+
 .logo{display:flex;align-items:center;gap:10px;}
 .logo-img{height:34px;width:auto;}
-.site-header .logo-img{height:140px;}
 
-.logo-group{display:flex;align-items:center;}
-.partner-brand-link{
-  display:flex;align-items:center;flex-shrink:0;
-  margin-left:18px;padding-left:18px;
-  border-left:1px solid var(--border-soft);
-}
-.partner-brand-logo{height:60px;width:auto;}
+.partner-brand-link{display:flex;align-items:center;flex-shrink:0;}
+.partner-brand-logo{height:68px;width:auto;}
 
 .primary-nav ul{display:flex;gap:34px;}
 .primary-nav a{
@@ -97,6 +111,10 @@ button{font-family:inherit;cursor:pointer;}
 .menu-toggle span{width:24px;height:2px;background:var(--white);display:block;}
 
 @media (max-width:900px){
+  .site-header{--header-top-h:77px;}
+  .header-top .logo-img{height:28px;}
+  .partner-brand-link{display:none;}
+
   .primary-nav{
     position:absolute;left:0;right:0;top:100%;
     background:var(--bg-dark-deep);border-bottom:1px solid var(--border-soft);
@@ -106,10 +124,8 @@ button{font-family:inherit;cursor:pointer;}
   .primary-nav ul{flex-direction:column;gap:0;padding:8px 32px 20px;}
   .primary-nav a{display:block;padding:12px 0;border-bottom:1px solid var(--border-soft);}
   .menu-toggle{display:flex;}
+  .header-right{margin-left:auto;} /* la nav pasa a absolute: sin esto el CTA queda a la izquierda */
   .header-right .btn{padding:10px 18px;font-size:14px;}
-  .site-header .logo-img{height:64px;}
-  .partner-brand-logo{height:26px;}
-  .partner-brand-link{margin-left:12px;padding-left:12px;}
 }
 
 /* -------- Utilidad: revelar al hacer scroll (se reutiliza en toda la web) -------- */
