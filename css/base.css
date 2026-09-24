@@ -119,6 +119,7 @@ button{font-family:inherit;cursor:pointer;}
   .site-header{--header-top-h:77px;}
   .header-top .logo-img{height:32px;}
   .partner-brand-link{display:none;}
+  .header-right .social-icon{display:none;}
 
   .primary-nav{
     position:absolute;left:0;right:0;top:100%;

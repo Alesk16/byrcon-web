@@ -30,7 +30,7 @@ byrcon-web/
 │  ├─ base.js            ← compartido: menú móvil, observer de .reveal, contadores animados de cifras, carrusel de aliados
 │  ├─ home.js            ← solo Home: selector de servicios, slider de testimonios, formulario, faq
 │  └─ proyectos.js       ← solo Proyectos: filtro por tipo
-├─ images/               ← logos (byrcon-logo.png original → footer; byrcon-logo-cropped.png sin margen → header (y base de favicon.png); dona-hacienda-logo.webp → header), fotos de proyectos, hero, logos-aliados/ (logos de aliados estratégicos, PNG)
+├─ images/               ← logos (byrcon-logo.png original → footer; byrcon-logo-cropped.png sin margen → header (y base de favicon.png); dona-hacienda-logo.webp → header), proyectos-destacados/ (las 4 fotos de proyectos), equipo-byrcon/ (fotos del equipo; `EquipoByrcon02.png` es una imagen genérica del sitio viejo, no se usa), hero, logos-aliados/ (logos de aliados estratégicos, PNG)
 ├─ PLAN.md               ← roadmap completo por fases
 ├─ docs/archivo/         ← documentos históricos ya resueltos (ej. pending-aliados-carousel.md, spec + historial del carrusel de aliados)
 └─ CLAUDE.md             ← este archivo
@@ -59,7 +59,7 @@ Patrones reutilizables ya establecidos, úsalos en vez de crear nuevos:
 - ✅ **Home (`index.html`) completo**: hero con foto real de fondo, cifras animadas (contador al hacer scroll), sección "20 años construyendo confianza" con gráfico de crecimiento, selector interactivo de servicios, sección de compromiso + tags de prácticas, proyectos destacados con fotos reales (4), slider de testimonios (autoplay + controles), formulario de cotización (sin backend), FAQ con acordeón accesible (`aria-expanded`), footer con LinkedIn real y logo oficial.
 - ✅ **Servicios (`servicios.html`) completo**: detalle ampliado de los 6 servicios, sección "Cómo trabajamos" (proceso en 4 pasos), carrusel de "Aliados Estratégicos" (11 logos, compartido con Nosotros — historial en `docs/archivo/pending-aliados-carousel.md`).
 - ✅ **Proyectos (`proyectos.html`) completo**: grid con filtro por tipo (industrial/comercial), los 4 proyectos actuales categorizados. Ampliable cuando haya más fotos.
-- ✅ **Sobre Nosotros (`nosotros.html`) completo**: intro + 3 pilares, cifras, equipo (3 personas, nombres/cargos reales, fotos pendientes salvo Silvana que también usa placeholder en el sitio real), carrusel de aliados.
+- ✅ **Sobre Nosotros (`nosotros.html`) completo**: intro + 3 pilares, cifras, equipo (3 personas, nombres/cargos reales, fotos reales de Eduardo y Ney; Silvana sigue con placeholder, igual que en el sitio real), carrusel de aliados.
 - ✅ **Aviso de Privacidad (`privacidad.html`) completo**: borrador razonable en base a la LOPDP de Ecuador, no revisado por un abogado. Tiene placeholders `[completar razón social y RUC]`, `[completar dirección]`, `[completar correo de contacto]` (x2) que el usuario debe llenar antes de publicar.
 - Ver `PLAN.md` para el roadmap completo por fases y qué sigue.
 

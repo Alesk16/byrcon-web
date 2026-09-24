@@ -37,7 +37,8 @@
 - [ ] **Bloqueante para lo anterior y para ampliar el grid:** requiere más fotos reales de obra
 
 ## Fase 4 — Sobre Nosotros (`nosotros.html`)
-- [x] Historia, valores (intro + 3 pilares), cifras, equipo (3 personas; fotos pendientes)
+- [x] Historia, valores (intro + 3 pilares), cifras, equipo (3 personas) — fotos reales de Eduardo Barrera y Ney Guerrero conectadas (`images/equipo-byrcon/`, 2026-09-23)
+- [ ] Foto de Silvana Rubio — no bloqueante (el sitio real tampoco la tiene; sigue con la silueta de placeholder)
 - [x] Carrusel de "Aliados Estratégicos" (compartido con Servicios)
 - [ ] Certificaciones o normativas, si existen para mostrar
 
@@ -66,7 +67,7 @@
 ## Pendientes de tu parte (no bloquean nada técnico)
 - Hex exactos de marca + tipografía oficial, si existe manual
 - Fotos reales de más proyectos (para ampliar Proyectos y hacer las fichas individuales)
-- Fotos de equipo (Eduardo y Ney; Silvana también usa placeholder en el sitio real)
+- Foto de Silvana Rubio (no bloqueante: el sitio real tampoco la tiene)
 - Certificaciones o normativas específicas a mostrar
 - Número de WhatsApp real (el ícono del footer sigue apuntando a `#`)
 - Completar los placeholders de `privacidad.html`: razón social y RUC, dirección, correo de contacto (x2) — idealmente con revisión de un abogado
